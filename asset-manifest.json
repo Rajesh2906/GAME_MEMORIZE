@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GAME_MEMORIZE/static/css/main.5f36b1d0.css",
-    "main.js": "/GAME_MEMORIZE/static/js/main.883cbbbc.js",
+    "main.css": "/GAME_MEMORIZE/static/css/main.610aea10.css",
+    "main.js": "/GAME_MEMORIZE/static/js/main.0193cb2f.js",
     "static/js/453.2dc62771.chunk.js": "/GAME_MEMORIZE/static/js/453.2dc62771.chunk.js",
     "static/media/papaya.png": "/GAME_MEMORIZE/static/media/papaya.7c4d78747ec5c0ca01b5.png",
     "static/media/pomogranate.png": "/GAME_MEMORIZE/static/media/pomogranate.ef07a59b92a2a2d02b80.png",
@@ -9,12 +9,12 @@
     "static/media/apple.png": "/GAME_MEMORIZE/static/media/apple.89982f5475193e9a99c9.png",
     "static/media/mango.png": "/GAME_MEMORIZE/static/media/mango.7822a602142ce54a5f1b.png",
     "index.html": "/GAME_MEMORIZE/index.html",
-    "main.5f36b1d0.css.map": "/GAME_MEMORIZE/static/css/main.5f36b1d0.css.map",
-    "main.883cbbbc.js.map": "/GAME_MEMORIZE/static/js/main.883cbbbc.js.map",
+    "main.610aea10.css.map": "/GAME_MEMORIZE/static/css/main.610aea10.css.map",
+    "main.0193cb2f.js.map": "/GAME_MEMORIZE/static/js/main.0193cb2f.js.map",
     "453.2dc62771.chunk.js.map": "/GAME_MEMORIZE/static/js/453.2dc62771.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f36b1d0.css",
-    "static/js/main.883cbbbc.js"
+    "static/css/main.610aea10.css",
+    "static/js/main.0193cb2f.js"
   ]
 }
