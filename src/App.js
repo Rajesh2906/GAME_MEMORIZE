@@ -18,19 +18,34 @@ const imageList = [
 
 function App() {
   const [cards, setCards] = useState([...imageList, ...imageList]);
-  const[click, setClick] = useState([]);
+  const [click, setClick] = useState([]);
+  const [count, setCount] = useState(0);
+  const [displayPopUp, setDisplayPopUp] = useState({
+    displayPopUp: false,
+    count: 0,
+  });
 
   const refreshCards = () => {
-    setCards([...cards].map(card => ({ ...card, flipped: false })).sort(() => Math.random() - 0.5));
+    setCards(
+      [...cards]
+        .map((card) => ({ ...card, flipped: false }))
+        .sort(() => Math.random() - 0.5)
+    );
+    setCount(0);
+    setDisplayPopUp({displayPopUp: false, count:0});
   };
 
-  const flipCard = index => {
+  const flipCard = (index) => {
     if (click.length === 2) return;
-    setCards(cards.map((card, i) => (i === index ? { ...card, flipped: !card.flipped } : card)));
-    setClick([...click,index]);
+    setCards(
+      cards.map((card, i) =>
+        i === index ? { ...card, flipped: !card.flipped } : card
+      )
+    );
+    setClick([...click, index]);
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     if (click.length === 2) {
       const [firstIndex, secondIndex] = click;
       const firstCard = cards[firstIndex];
@@ -38,30 +53,45 @@ function App() {
 
       if (firstCard.src !== secondCard.src) {
         setTimeout(() => {
-          setCards(cards.map((card, i) => (i === firstIndex || i === secondIndex ? { ...card, flipped: false } : card)));
+          setCards(
+            cards.map((card, i) =>
+              i === firstIndex || i === secondIndex
+                ? { ...card, flipped: false }
+                : card
+            )
+          );
           setClick([]);
         }, 700);
       } else {
         setClick([]);
       }
+      setCount(count + 1);
     }
     let isAllFlipped = true;
-    cards.forEach(card => {
-      if (!card.flipped){
+    cards.forEach((card) => {
+      if (!card.flipped) {
         isAllFlipped = false;
       }
     });
-    if(isAllFlipped){
+    if (isAllFlipped) {
+      setDisplayPopUp({ displayPopUp: true, count: count });
       setTimeout(() => {
-        refreshCards();
-      },900);
+        setCards(
+          [...cards]
+            .map((card) => ({ ...card, flipped: false }))
+            .sort(() => Math.random() - 0.5)
+        );
+        setCount(0);
+      }, 900);
     }
-  },[click,cards]);
+  }, [click, cards]);
 
   return (
     <div className="App">
       <h1>MEMORIZE</h1>
-      <button className="newGame" onClick={refreshCards}>New Game</button>
+      <button className="newGame" onClick={refreshCards}>
+        New Game
+      </button>
       <div className="imgGame">
         {cards.map((card, index) => (
           <div
@@ -73,13 +103,18 @@ function App() {
               <div className="card-back">
                 <img src={card.src} alt={`img-${index}`} />
               </div>
-              <div className="card-front">
-                Click
-              </div>
+              <div className="card-front"><p>Click!</p></div>
             </div>
           </div>
         ))}
       </div>
+      <div className="turns">No of turns : {count}</div>
+      {displayPopUp?.displayPopUp && (
+        <div className="popUp">
+          Congratulations You did it! You took {displayPopUp?.count} turns
+          <button className="newGame" onClick={refreshCards}>Play Again</button>
+        </div>
+      )}
     </div>
   );
 }

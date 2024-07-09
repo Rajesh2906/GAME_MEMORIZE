@@ -15,7 +15,7 @@
 
 .newGame {
   padding: 10px 20px;
-  margin: 20px;
+  margin: 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -83,7 +83,23 @@
   background-color: white;
 }
 
+.card-front p{
+  margin-top: 38px;
+}
+
 .card-back {
   background-color: #bbb; /* Placeholder or background for the card back */
   transform: rotateY(180deg);
+}
+
+.popUp{
+  position: absolute;
+  padding: 60px;
+  width: 202px;
+  border-radius: 30px 30px 20px 20px;
+  box-shadow: inset 0px 0px 10px #33FFA3, 0px 1.5px 62px 25px #1FFF18;
+  background: white;
+}
+.turns{
+  margin-top: 10px;
 }
